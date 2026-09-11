@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Jai Maa Travels - Shaadi Barat Car Bus Booking</title>
+<meta name="description" content="Shaadi, Barat ke liye Car, Bus, Luxury Vehicle Booking. Call: 9669409388"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root{--red:#c8102e;--gold:#d4a017;--dark:#1a1a2e;--gray:#6c757d;--white:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:#fff8f0;color:#333;}
+
+/* BANNER */
+.top-banner{background:linear-gradient(90deg,var(--red),var(--gold),var(--red));background-size:200%;animation:shine 3s linear infinite;color:#fff;text-align:center;padding:9px;font-size:.82rem;font-weight:600;letter-spacing:1px;}
+@keyframes shine{0%{background-position:0%}100%{background-position:200%}}
+
+/* NAV */
+nav{position:fixed;top:36px;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:65px;background:rgba(26,26,46,.97);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-ico{width:42px;height:42px;background:linear-gradient(135deg,var(--red),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.logo span{display:block;font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);font-weight:700;}
+.logo small{display:block;font-size:.6rem;color:#aaa;letter-spacing:2px;text-transform:uppercase;}
+.nav-links{display:flex;list-style:none;gap:25px;}
+.nav-links a{color:#ddd;text-decoration:none;font-size:.88rem;font-weight:500;transition:color .3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:linear-gradient(135deg,var(--red),#9b0e24)!important;color:#fff!important;padding:8px 18px;border-radius:25px;font-weight:700!important;}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.ham span{width:24px;height:2px;background:var(--gold);border-radius:2px;}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:130px 5% 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at center,rgba(200,16,46,.12) 0%,transparent 60%);animation:pulse 6s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.2);opacity:1}}
+.hero-content{position:relative;z-index:1;max-width:820px;}
+.badge{display:inline-block;background:rgba(212,160,23,.15);border:1px solid var(--gold);color:var(--gold);padding:6px 20px;border-radius:25px;font-size:.82rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4rem);color:#fff;line-height:1.2;margin-bottom:18px;}
+.hero h1 span{color:var(--gold);}
+.hero p{font-size:clamp(.95rem,2vw,1.15rem);color:#bbb;margin-bottom:35px;line-height:1.8;}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-r{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--red),#9b0e24);color:#fff;padding:13px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .3s;box-shadow:0 5px 20px rgba(200,16,46,.4);}
+.btn-r:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(200,16,46,.5);}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold);padding:13px 30px;border-radius:50px;text-decoration:none;font-weight:700;border:2px solid var(--gold);transition:all .3s;font-size:.95rem;}
+.btn-g:hover{background:var(--gold);color:var(--dark);}
+.stats{display:flex;justify-content:center;gap:45px;margin-top:55px;flex-wrap:wrap;}
+.stat span{display:block;font-size:1.9rem;font-weight:800;color:var(--gold);}
+.stat small{font-size:.75rem;color:#aaa;text-transform:uppercase;letter-spacing:1px;}
+
+/* SECTIONS */
+section{padding:75px 5%;}
+.sec-tag{display:inline-block;background:rgba(200,16,46,.1);color:var(--red);padding:5px 15px;border-radius:20px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.sec-h{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.6rem);color:var(--dark);margin-bottom:12px;}
+.sec-p{color:var(--gray);font-size:.95rem;line-height:1.7;max-width:580px;margin-bottom:45px;}
+.tc{text-align:center;}.tc .sec-p{margin:0 auto 45px;}
+
+/* SERVICES */
+#services{background:#fff;}
+.srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
+.srv-card{background:#fff8f0;border-radius:18px;padding:32px 25px;text-align:center;border:1px solid #eee;transition:all .4s;position:relative;overflow:hidden;}
+.srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--red),var(--gold));transform:scaleX(0);transition:transform .4s;}
+.srv-card:hover::before{transform:scaleX(1);}
+.srv-card:hover{transform:translateY(-7px);box-shadow:0 18px 45px rgba(0,0,0,.1);}
+.srv-ico{width:70px;height:70px;margin:0 auto 18px;background:linear-gradient(135deg,var(--red),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;}
+.srv-card h3{font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:10px;}
+.srv-card p{color:var(--gray);font-size:.87rem;line-height:1.7;}
+
+/* VEHICLES */
+#vehicles{background:#fff8f0;}
+.veh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+.veh-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,.07);transition:all .4s;}
+.veh-card:hover{transform:translateY(-7px);box-shadow:0 20px 45px rgba(0,0,0,.13);}
+.veh-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:65px;position:relative;}
+.veh-badge{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.15);color:#fff;padding:3px 10px;border-radius:10px;font-size:.68rem;font-weight:700;backdrop-filter:blur(5px);}
+.veh-info{padding:22px;}
+.veh-info h3{font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.veh-info p{color:var(--gray);font-size:.83rem;margin-bottom:12px;}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;}
+.tag{background:rgba(200,16,46,.08);color:var(--red);padding:3px 9px;border-radius:9px;font-size:.72rem;font-weight:700;}
+.veh-btn{display:block;width:100%;text-align:center;background:linear-gradient(135deg,var(--red),#9b0e24);color:#fff;padding:11px;border-radius:11px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .3s;}
+.veh-btn:hover{box-shadow:0 5px 18px rgba(200,16,46,.4);transform:translateY(-2px);}
+
+/* BOOKING FORM */
+#booking{background:linear-gradient(135deg,var(--red),#9b0e24);}
+#booking .sec-tag{background:rgba(255,255,255,.15);color:#fff;}
+#booking .sec-h{color:#fff;}
+#booking .sec-p{color:rgba(255,255,255,.85);}
+.form-box{background:#fff;border-radius:22px;padding:45px 38px;max-width:720px;margin:0 auto;box-shadow:0 20px 55px rgba(0,0,0,.2);}
+.form-box h3{font-size:1.35rem;font-weight:700;color:var(--dark);margin-bottom:25px;text-align:center;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.fg label{font-size:.82rem;font-weight:700;color:var(--dark);}
+.fg input,.fg select,.fg textarea{padding:11px 14px;border:2px solid #eee;border-radius:10px;font-family:'Poppins',sans-serif;font-size:.88rem;background:#fafafa;transition:border-color .3s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--red);background:#fff;}
+.fg textarea{resize:vertical;min-height:90px;}
+.fg.full{grid-column:span 2;}
+.submit-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--red),#9b0e24);color:#fff;border:none;border-radius:11px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,16,46,.4);}
+
+/* WHY US */
+#why{background:linear-gradient(135deg,var(--dark),#16213e);}
+#why .sec-h{color:#fff;}#why .sec-p{color:#aaa;}
+#why .sec-tag{background:rgba(212,160,23,.15);color:var(--gold);}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:15px;padding:28px 22px;text-align:center;transition:all .3s;}
+.why-card:hover{background:rgba(255,255,255,.1);transform:translateY(-5px);}
+.why-card i{font-size:2.2rem;color:var(--gold);margin-bottom:12px;}
+.why-card h4{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;}
+.why-card p{font-size:.82rem;color:#aaa;line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--dark);color:#aaa;padding:55px 5% 25px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:45px;margin-bottom:35px;}
+.fb p{margin-top:12px;font-size:.87rem;line-height:1.7;}
+.socials{display:flex;gap:10px;margin-top:18px;}
+.soc{width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#aaa;text-decoration:none;transition:all .3s;font-size:.85rem;}
+.soc:hover{background:var(--red);color:#fff;}
+.fc h4{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:18px;padding-bottom:9px;border-bottom:2px solid var(--gold);display:inline-block;}
+.fc ul{list-style:none;}
+.fc ul li{margin-bottom:9px;font-size:.85rem;}
+.fc ul li a{color:#aaa;text-decoration:none;transition:color .3s;}
+.fc ul li a:hover{color:var(--gold);}
+.fc ul li i{color:var(--gold);margin-right:8px;}
+.footer-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:.8rem;}
+.footer-bot span{color:var(--gold);}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;text-decoration:none;box-shadow:0 5px 18px rgba(37,211,102,.5);z-index:999;animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* SUCCESS TOAST */
+.toast{position:fixed;bottom:100px;right:24px;background:#1a1a2e;color:#fff;padding:14px 22px;border-radius:12px;font-size:.88rem;z-index:9999;box-shadow:0 5px 20px rgba(0,0,0,.3);border-left:4px solid #25d366;display:none;animation:slideIn .4s ease;}
+@keyframes slideIn{from{transform:translateX(100px);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:all .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  .nav-links{display:none;}.ham{display:flex;}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:65px;left:0;right:0;background:rgba(26,26,46,.98);padding:18px;gap:14px;border-top:1px solid rgba(255,255,255,.1);}
+  .frow{grid-template-columns:1fr;}.fg.full{grid-column:span 1;}
+  .footer-grid{grid-template-columns:1fr;gap:25px;}
+  .stats{gap:22px;}
+  .form-box{padding:28px 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">🎊 Shaadi • Barat • Events ke liye Special Packages! Call: 9669409388 🎊</div>
+
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-ico">🚗</div>
+    <div><span>Jai Maa Travels</span><small>Premium Transport Service</small></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#vehicles">Vehicles</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#booking" class="nav-cta">📋 Book Now</a></li>
+  </ul>
+  <div class="ham" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="badge">✨ Trusted Since 10+ Years ✨</div>
+    <h1>Shaadi & Barat ke liye<br/><span>Behtareen Vehicles</span></h1>
+    <p>Cars, Buses aur Luxury Vehicles — Har Occasion ka Perfect Travel Solution 🎉</p>
+    <div class="btns">
+      <a href="#booking" class="btn-r"><i class="fas fa-calendar-check"></i> Abhi Book Karein</a>
+      <a href="https://wa.me/919669409388" class="btn-g" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><span>500+</span><small>Happy Customers</small></div>
+      <div class="stat"><span>50+</span><small>Vehicles</small></div>
+      <div class="stat"><span>5★</span><small>Rating</small></div>
+      <div class="stat"><span>10+</span><small>Years</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="tc">
+    <div class="sec-tag">Our Services</div>
+    <h2 class="sec-h">Hamaari Sewaayen</h2>
+    <p class="sec-p">Shaadi se lekar corporate events tak — har occasion ke liye perfect transport</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card reveal"><div class="srv-ico">💒</div><h3>Shaadi & Barat</h3><p>Dulhe ki barat ke liye decorated vehicles. Baraat procession ke liye buses available.</p></div>
+    <div class="srv-card reveal"><div class="srv-ico">🏢</div><h3>Corporate Events</h3><p>Office trips aur team outings ke liye comfortable aur punctual transport.</p></div>
+    <div class="srv-card reveal"><div class="srv-ico">🛕</div><h3>Pilgrim Tours</h3><p>Teerth yatra ke liye comfortable buses. Ujjain, Shirdi, Vaishno Devi.</p></div>
+    <div class="srv-card reveal"><div class="srv-ico">✈️</div><h3>Airport Transfer</h3><p>Airport pickup & drop ke liye AC cars. 24/7 available.</p></div>
+    <div class="srv-card reveal"><div class="srv-ico">🎓</div><h3>School Trips</h3><p>School picnic aur college tours ke liye safe aur affordable bus rental.</p></div>
+    <div class="srv-card reveal"><div class="srv-ico">🎪</div><h3>Events & Functions</h3><p>Birthday, anniversary, reception ke liye complete transport solution.</p></div>
+  </div>
+</section>
+
+<!-- VEHICLES -->
+<section id="vehicles">
+  <div class="tc">
+    <div class="sec-tag">Our Fleet</div>
+    <h2 class="sec-h">Hamaari Gaadiyaan</h2>
+    <p class="sec-p">Modern, well-maintained vehicles — Cars se Luxury Buses tak</p>
+  </div>
+  <div class="veh-grid">
+    <div class="veh-card reveal">
+      <div class="veh-img" style="background:linear-gradient(135deg,#1a1a2e,#0f3460)">🚗<span class="veh-badge">AC</span></div>
+      <div class="veh-info"><h3>Sedan (Dzire / Etios)</h3><p>4 Seater • Comfortable</p><div class="tags"><span class="tag">AC</span><span class="tag">4 Seater</span><span class="tag">GPS</span></div><a href="#booking" class="veh-btn">📋 Book Karo</a></div>
+    </div>
+    <div class="veh-card reveal">
+      <div class="veh-img" style="background:linear-gradient(135deg,#16213e,#0f3460)">🚙<span class="veh-badge">Premium</span></div>
+      <div class="veh-info"><h3>SUV (Innova / Fortuner)</h3><p>7 Seater • Family Travel</p><div class="tags"><span class="tag">AC</span><span class="tag">7 Seater</span><span class="tag">Luxury</span></div><a href="#booking" class="veh-btn">📋 Book Karo</a></div>
+    </div>
+    <div class="veh-card reveal">
+      <div class="veh-img" style="background:linear-gradient(135deg,#d4a017,#a07a10)">🏎️<span class="veh-badge">VIP</span></div>
+      <div class="veh-info"><h3>Luxury Car (Mercedes/BMW)</h3><p>Dulha-Dulhan Special VIP Car</p><div class="tags"><span class="tag">VIP</span><span class="tag">Decorated</span><span class="tag">Chauffeur</span></div><a href="#booking" class="veh-btn">📋 Book Karo</a></div>
+    </div>
+    <div class="veh-card reveal">
+      <div class="veh-img" style="background:linear-gradient(135deg,#2d5016,#3d7a20)">🚐<span class="veh-badge">Popular</span></div>
+      <div class="veh-info"><h3>Tempo Traveller (12-17)</h3><p>Group Travel Best Option</p><div class="tags"><span class="tag">AC</span><span class="tag">17 Seater</span><span class="tag">Luggage</span></div><a href="#booking" class="veh-btn">📋 Book Karo</a></div>
+    </div>
+    <div class="veh-card reveal">
+      <div class="veh-img" style="background:linear-gradient(135deg,#c8102e,#9b0e24)">🚌<span class="veh-badge">Barat</span></div>
+      <div class="veh-info"><h3>Mini Bus (20-35)</h3><p>Barat ke liye perfect</p><div class="tags"><span class="tag">AC</span><span class="tag">35 Seater</span><span class="tag">Music</span></div><a href="#booking" class="veh-btn">📋 Book Karo</a></div>
+    </div>
+    <div class="veh-card reveal">
+      <div class="veh-img" style="background:linear-gradient(135deg,#333,#555)">🚍<span class="veh-badge">Large</span></div>
+      <div class="veh-info"><h3>Full Bus (45-52)</h3><p>Badi barat aur pilgrim tours</p><div class="tags"><span class="tag">AC</span><span class="tag">52 Seater</span><span class="tag">Push Back</span></div><a href="#booking" class="veh-btn">📋 Book Karo</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="tc">
+    <div class="sec-tag">Why Us</div>
+    <h2 class="sec-h">Humein Kyun Choose Karein?</h2>
+    <p class="sec-p" style="color:#aaa">10 saalon ka anubhav aur 500+ khush customers</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal"><i class="fas fa-clock"></i><h4>Hamesha Samay Par</h4><p>Kabhi late nahi hote. Aapki shaadi ka din perfect banana hamaari zimmedari.</p></div>
+    <div class="why-card reveal"><i class="fas fa-shield-alt"></i><h4>100% Safe</h4><p>Experienced drivers, insured vehicles aur GPS tracking.</p></div>
+    <div class="why-card reveal"><i class="fas fa-wallet"></i><h4>Best Price</h4><p>Market mein sabse competitive pricing. Budget ke anusaar customize.</p></div>
+    <div class="why-card reveal"><i class="fas fa-headset"></i><h4>24/7 Support</h4><p>Raat ho ya din, hamaari team hamesha available hai.</p></div>
+    <div class="why-card reveal"><i class="fas fa-star"></i><h4>Premium Vehicles</h4><p>Clean, well-maintained aur modern fleet.</p></div>
+    <div class="why-card reveal"><i class="fas fa-handshake"></i><h4>Trusted</h4><p>Hazaron parivaron ne hamar par bharosa kiya.</p></div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section id="booking">
+  <div class="tc">
+    <div class="sec-tag">Book Now</div>
+    <h2 class="sec-h">Booking Form Bharein</h2>
+    <p class="sec-p">Form bharein — aapki booking WhatsApp par aur hamaare record mein save ho jaayegi</p>
+  </div>
+  <div class="form-box">
+    <h3>🚗 Booking Enquiry Form</h3>
+    <form id="bookingForm">
+      <div class="frow">
+        <div class="fg"><label>Aapka Naam *</label><input type="text" id="b_name" placeholder="Jaise: Ramesh Kumar" required/></div>
+        <div class="fg"><label>Mobile / WhatsApp *</label><input type="tel" id="b_phone" placeholder="9876543210" required/></div>
+        <div class="fg"><label>Occasion / Event *</label>
+          <select id="b_event" required>
+            <option value="">-- Select Karein --</option>
+            <option>Shaadi / Barat</option><option>Reception</option><option>Corporate Trip</option>
+            <option>Pilgrim Tour</option><option>Airport Transfer</option><option>School/College Trip</option><option>Kuch Aur</option>
+          </select>
+        </div>
+        <div class="fg"><label>Vehicle Type *</label>
+          <select id="b_vehicle" required>
+            <option value="">-- Select Karein --</option>
+            <option>Sedan Car (Dzire / Etios)</option><option>SUV (Innova / Fortuner)</option>
+            <option>Luxury Car (Mercedes / BMW)</option><option>Tempo Traveller (12-17)</option>
+            <option>Mini Bus (20-35)</option><option>Full Size Bus (45-52)</option>
+          </select>
+        </div>
+        <div class="fg"><label>Date *</label><input type="date" id="b_date" required/></div>
+        <div class="fg"><label>City / Jagah</label><input type="text" id="b_city" placeholder="Jaise: Bhopal"/></div>
+        <div class="fg"><label>Passenger Count</label><input type="number" id="b_pax" placeholder="Kitne log?" min="1"/></div>
+        <div class="fg"><label>Budget (Approx)</label><input type="text" id="b_budget" placeholder="Jaise: 5000-10000"/></div>
+        <div class="fg full"><label>Additional Details</label><textarea id="b_details" placeholder="Koi aur jaankari likhen..."></textarea></div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fab fa-whatsapp"></i> Book Karein — WhatsApp par Bhejein</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fb">
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);font-weight:700;">🚗 Jai Maa Travels</div>
+      <p>Shaadi, Barat aur Events ke liye trusted transport partner. 10+ saal ka anubhav aur 500+ khush customers.</p>
+      <div class="socials">
+        <a href="https://wa.me/919669409388" class="soc" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:9669409388" class="soc"><i class="fas fa-phone"></i></a>
+        <a href="#" class="soc"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="soc"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="fc">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#services">Hamaari Sewaayen</a></li>
+        <li><a href="#vehicles">Hamaari Gaadiyaan</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#booking">Booking Karein</a></li>
+        <li><a href="bookings.html">📊 Admin Panel</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Contact</h4>
+      <ul>
+        <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/919669409388" target="_blank">+91 9669409388</a></li>
+        <li><i class="fas fa-phone"></i><a href="tel:9669409388">9669409388</a></li>
+        <li><i class="fas fa-clock"></i>24/7 Available</li>
+        <li><i class="fas fa-map-marker-alt"></i>Madhya Pradesh, India</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <p>© 2025 <span>Jai Maa Travels</span>. Sab adhikar surakshit.</p>
+    <p>Made with ❤️ for <span>Jai Maa Travels</span></p>
+  </div>
+</footer>
+
+<a href="https://wa.me/919669409388" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div class="toast" id="toast">✅ Booking submit ho gayi! WhatsApp khul raha hai...</div>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Form submit
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const data = {
+    id: 'BK' + Date.now(),
+    naam: document.getElementById('b_name').value,
+    mobile: document.getElementById('b_phone').value,
+    event: document.getElementById('b_event').value,
+    vehicle: document.getElementById('b_vehicle').value,
+    date: document.getElementById('b_date').value,
+    city: document.getElementById('b_city').value,
+    pax: document.getElementById('b_pax').value,
+    budget: document.getElementById('b_budget').value,
+    details: document.getElementById('b_details').value,
+    time: new Date().toLocaleString('hi-IN')
+  };
+
+  // Save to localStorage
+  const existing = JSON.parse(localStorage.getItem('jmt_bookings') || '[]');
+  existing.push(data);
+  localStorage.setItem('jmt_bookings', JSON.stringify(existing));
+
+  // WhatsApp message
+  const msg = `🙏 *JAI MAA TRAVELS — BOOKING*\n\n`+
+    `🆔 Booking ID: ${data.id}\n`+
+    `👤 Naam: ${data.naam}\n`+
+    `📱 Mobile: ${data.mobile}\n`+
+    `🎉 Occasion: ${data.event}\n`+
+    `🚗 Vehicle: ${data.vehicle}\n`+
+    `📅 Date: ${data.date}\n`+
+    `📍 City: ${data.city || 'N/A'}\n`+
+    `👥 Passengers: ${data.pax || 'N/A'}\n`+
+    `💰 Budget: ${data.budget || 'N/A'}\n`+
+    `📝 Details: ${data.details || 'N/A'}\n`+
+    `⏰ Submitted: ${data.time}`;
+
+  window.open(`https://wa.me/919669409388?text=${encodeURIComponent(msg)}`, '_blank');
+  
+  // Show toast
+  const t = document.getElementById('toast');
+  t.style.display = 'block';
+  setTimeout(()=>t.style.display='none', 4000);
+  
+  this.reset();
+});
+</script>
+</body>
+</html>
