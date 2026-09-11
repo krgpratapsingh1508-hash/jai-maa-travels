@@ -3,84 +3,134 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Admin Panel - Jai Maa Travels Bookings</title>
+<title>Admin Panel - Jai Maa Travels</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Poppins',sans-serif;background:#f0f2f5;color:#333;}
-header{background:linear-gradient(135deg,#1a1a2e,#0f3460);color:#fff;padding:20px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
-header h1{font-size:1.4rem;font-weight:700;}
+
+/* ---- HEADER ---- */
+header{background:linear-gradient(135deg,#1a1a2e,#0f3460);color:#fff;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+header h1{font-size:1.3rem;font-weight:700;}
 header h1 span{color:#d4a017;}
-.header-right{display:flex;gap:10px;align-items:center;}
-.back-btn{background:rgba(255,255,255,.1);color:#fff;padding:8px 16px;border-radius:20px;text-decoration:none;font-size:.82rem;font-weight:600;transition:background .3s;}
+.hbtns{display:flex;gap:10px;}
+.back-btn{background:rgba(255,255,255,.1);color:#fff;padding:8px 16px;border-radius:20px;text-decoration:none;font-size:.82rem;font-weight:600;transition:.3s;}
 .back-btn:hover{background:rgba(255,255,255,.2);}
-.clear-btn{background:#c8102e;color:#fff;border:none;padding:8px 16px;border-radius:20px;font-size:.82rem;font-weight:600;cursor:pointer;}
-.stats-row{display:flex;gap:15px;padding:25px 5%;flex-wrap:wrap;}
-.stat-box{background:#fff;border-radius:14px;padding:20px 25px;flex:1;min-width:150px;box-shadow:0 2px 10px rgba(0,0,0,.07);border-left:4px solid #c8102e;}
-.stat-box .num{font-size:2rem;font-weight:800;color:#c8102e;}
-.stat-box .lbl{font-size:.8rem;color:#777;margin-top:2px;}
+.clear-btn{background:#c8102e;color:#fff;border:none;padding:8px 16px;border-radius:20px;font-size:.82rem;font-weight:600;cursor:pointer;transition:.3s;}
+.clear-btn:hover{background:#9b0e24;}
+
+/* ---- STATS ---- */
+.stats-row{display:flex;gap:15px;padding:22px 5%;flex-wrap:wrap;}
+.stat-box{background:#fff;border-radius:14px;padding:18px 22px;flex:1;min-width:140px;box-shadow:0 2px 10px rgba(0,0,0,.07);border-left:4px solid #c8102e;}
+.stat-box .num{font-size:1.9rem;font-weight:800;color:#c8102e;}
+.stat-box .lbl{font-size:.78rem;color:#777;margin-top:2px;}
+.stat-box.gold{border-color:#d4a017;}.stat-box.gold .num{color:#d4a017;}
+.stat-box.green{border-color:#25d366;}.stat-box.green .num{color:#25d366;}
+
+/* ---- FILTER ---- */
 .container{padding:0 5% 40px;}
-.filter-bar{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+.filter-bar{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
 .filter-bar input,.filter-bar select{padding:9px 14px;border:2px solid #eee;border-radius:10px;font-family:'Poppins',sans-serif;font-size:.85rem;background:#fff;flex:1;min-width:160px;}
 .filter-bar input:focus,.filter-bar select:focus{outline:none;border-color:#c8102e;}
-.no-data{text-align:center;padding:60px;color:#aaa;}
+
+/* ---- TABLE ---- */
+.no-data{text-align:center;padding:60px;color:#aaa;background:#fff;border-radius:14px;}
 .no-data i{font-size:3rem;display:block;margin-bottom:12px;}
 table{width:100%;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);border-collapse:collapse;}
 thead{background:linear-gradient(135deg,#1a1a2e,#0f3460);}
-thead th{color:#fff;padding:14px 12px;text-align:left;font-size:.82rem;font-weight:600;white-space:nowrap;}
+thead th{color:#fff;padding:13px 11px;text-align:left;font-size:.8rem;font-weight:600;white-space:nowrap;}
 tbody tr{border-bottom:1px solid #f0f2f5;transition:background .2s;}
 tbody tr:hover{background:#fff8f0;}
-tbody td{padding:13px 12px;font-size:.82rem;vertical-align:middle;}
-.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:700;}
-.badge-new{background:#e8f5e9;color:#2e7d32;}
-.bid{font-weight:700;color:#c8102e;font-size:.8rem;}
-.wa-link{display:inline-flex;align-items:center;gap:5px;background:#25d366;color:#fff;padding:5px 12px;border-radius:10px;text-decoration:none;font-size:.75rem;font-weight:700;transition:opacity .2s;}
-.wa-link:hover{opacity:.85;}
-.del-btn{background:#fff0f0;border:none;color:#c8102e;padding:5px 10px;border-radius:8px;cursor:pointer;font-size:.75rem;font-weight:700;}
+tbody td{padding:12px 11px;font-size:.82rem;vertical-align:middle;}
+.bid{font-weight:700;color:#c8102e;font-size:.78rem;}
+.ev-badge{display:inline-block;background:#e8f5e9;color:#2e7d32;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:700;}
+.del-btn{background:#fff0f0;border:none;color:#c8102e;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.78rem;font-weight:700;transition:.2s;}
 .del-btn:hover{background:#c8102e;color:#fff;}
+
+/* ---- PASSWORD MODAL ---- */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;align-items:center;justify-content:center;}
+.modal-bg.show{display:flex;}
+.modal{background:#fff;border-radius:20px;padding:40px 35px;max-width:380px;width:90%;text-align:center;animation:popIn .3s ease;}
+@keyframes popIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.modal .lock-ico{font-size:3rem;display:block;margin-bottom:12px;}
+.modal h2{font-size:1.3rem;font-weight:700;color:#1a1a2e;margin-bottom:6px;}
+.modal p{font-size:.85rem;color:#777;margin-bottom:22px;}
+.modal input[type=password]{width:100%;padding:12px 15px;border:2px solid #eee;border-radius:10px;font-size:1rem;font-family:'Poppins',sans-serif;text-align:center;letter-spacing:4px;transition:.3s;margin-bottom:8px;}
+.modal input[type=password]:focus{outline:none;border-color:#c8102e;}
+.modal .err{color:#c8102e;font-size:.8rem;font-weight:600;min-height:18px;margin-bottom:12px;display:block;}
+.modal-btns{display:flex;gap:10px;}
+.modal-btns button{flex:1;padding:11px;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;border:none;transition:.2s;}
+.cancel-btn{background:#f0f2f5;color:#555;}
+.cancel-btn:hover{background:#e0e0e0;}
+.confirm-btn{background:linear-gradient(135deg,#c8102e,#9b0e24);color:#fff;}
+.confirm-btn:hover{box-shadow:0 4px 15px rgba(200,16,46,.4);}
+
+
+
 @media(max-width:768px){
   table{display:block;overflow-x:auto;}
   .stats-row{gap:10px;}
+  .modal{padding:28px 20px;}
 }
 </style>
 </head>
 <body>
 
+<!-- ===== PASSWORD MODAL (Delete / Clear ke liye) ===== -->
+<div class="modal-bg" id="pwModal">
+  <div class="modal">
+    <span class="lock-ico">🔑</span>
+    <h2 id="modalTitle">Password Confirm Karein</h2>
+    <p id="modalDesc">Yeh action ke liye admin password daalna zaroori hai</p>
+    <input type="password" id="modalPass" placeholder="Password daalo" onkeydown="if(event.key==='Enter')confirmAction()"/>
+    <span class="err" id="modalErr"></span>
+    <div class="modal-btns">
+      <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+      <button class="confirm-btn" onclick="confirmAction()"><i class="fas fa-check"></i> Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
 <header>
   <h1>🚗 <span>Jai Maa Travels</span> — Admin Panel</h1>
-  <div class="header-right">
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Website Par Jaao</a>
-    <button class="clear-btn" onclick="clearAll()"><i class="fas fa-trash"></i> Sab Clear Karo</button>
+  <div class="hbtns">
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Website</a>
+    <button class="clear-btn" onclick="askClearAll()"><i class="fas fa-trash"></i> Sab Delete Karo</button>
   </div>
 </header>
 
 <div class="stats-row">
   <div class="stat-box"><div class="num" id="totalCount">0</div><div class="lbl">Total Bookings</div></div>
-  <div class="stat-box" style="border-color:#d4a017"><div class="num" style="color:#d4a017" id="todayCount">0</div><div class="lbl">Aaj Ki Bookings</div></div>
-  <div class="stat-box" style="border-color:#25d366"><div class="num" style="color:#25d366" id="weddingCount">0</div><div class="lbl">Shaadi/Barat</div></div>
+  <div class="stat-box gold"><div class="num" id="todayCount">0</div><div class="lbl">Aaj Ki Bookings</div></div>
+  <div class="stat-box green"><div class="num" id="weddingCount">0</div><div class="lbl">Shaadi / Barat</div></div>
 </div>
 
 <div class="container">
   <div class="filter-bar">
-    <input type="text" id="searchInput" placeholder="🔍 Naam ya mobile se dhundho..." onkeyup="filterBookings()"/>
+    <input type="text" id="searchInput" placeholder="🔍 Naam ya mobile se dhundho..." oninput="filterBookings()"/>
     <select id="filterEvent" onchange="filterBookings()">
       <option value="">Sabhi Events</option>
-      <option>Shaadi / Barat</option>
-      <option>Reception</option>
-      <option>Corporate Trip</option>
-      <option>Pilgrim Tour</option>
-      <option>Airport Transfer</option>
-      <option>School/College Trip</option>
-      <option>Kuch Aur</option>
+      <option>Shaadi / Barat</option><option>Reception</option><option>Corporate Trip</option>
+      <option>Pilgrim Tour</option><option>Airport Transfer</option><option>School/College Trip</option><option>Kuch Aur</option>
     </select>
   </div>
   <div id="tableWrap"></div>
 </div>
 
 <script>
-let allBookings = [];
+// =============================================
+// ADMIN PASSWORD — Yahan apna password daalo
+// =============================================
+const ADMIN_PASSWORD = "jaimaa2025";
+// =============================================
 
+let allBookings = [];
+let pendingAction = null;
+let pendingId = null;
+
+/* ---------- LOAD DATA ---------- */
 function loadBookings(){
   allBookings = JSON.parse(localStorage.getItem('jmt_bookings') || '[]').reverse();
   updateStats();
@@ -90,13 +140,16 @@ function loadBookings(){
 function updateStats(){
   document.getElementById('totalCount').textContent = allBookings.length;
   const today = new Date().toLocaleDateString('en-IN');
-  document.getElementById('todayCount').textContent = allBookings.filter(b=> new Date(b.time).toLocaleDateString('en-IN')===today || b.time.includes(new Date().toLocaleDateString('hi-IN'))).length;
-  document.getElementById('weddingCount').textContent = allBookings.filter(b=>b.event && b.event.includes('Shaadi')).length;
+  document.getElementById('todayCount').textContent = allBookings.filter(b=>{
+    try{ return new Date(b.time || b.SubmittedAt).toLocaleDateString('en-IN')===today; }catch(e){return false;}
+  }).length;
+  document.getElementById('weddingCount').textContent = allBookings.filter(b=> b.event && b.event.includes('Shaadi')).length;
 }
 
+/* ---------- RENDER TABLE ---------- */
 function renderTable(data){
   const wrap = document.getElementById('tableWrap');
-  if(data.length===0){
+  if(!data.length){
     wrap.innerHTML=`<div class="no-data"><i class="fas fa-inbox"></i><b>Koi booking nahi mili</b><br/>Jab customer form bharega, yahan dikhai dega.</div>`;
     return;
   }
@@ -104,57 +157,102 @@ function renderTable(data){
     <thead><tr>
       <th>#</th><th>Booking ID</th><th>Naam</th><th>Mobile</th>
       <th>Occasion</th><th>Vehicle</th><th>Date</th><th>City</th>
-      <th>Passengers</th><th>Budget</th><th>Details</th><th>Submitted</th><th>Actions</th>
+      <th>Passengers</th><th>Budget</th><th>Details</th><th>Submitted</th><th>Delete</th>
     </tr></thead>
     <tbody>
     ${data.map((b,i)=>`<tr>
-      <td>${i+1}</td>
-      <td><span class="bid">${b.id||'—'}</span></td>
-      <td><b>${b.naam}</b></td>
-      <td>${b.mobile}</td>
-      <td><span class="badge badge-new">${b.event}</span></td>
-      <td>${b.vehicle}</td>
-      <td>${b.date||'—'}</td>
-      <td>${b.city||'—'}</td>
-      <td>${b.pax||'—'}</td>
-      <td>${b.budget||'—'}</td>
-      <td style="max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${b.details||''}">${b.details||'—'}</td>
-      <td style="white-space:nowrap;font-size:.75rem;color:#888">${b.time}</td>
-      <td style="white-space:nowrap;">
-        <a href="https://wa.me/91${b.mobile}?text=Namaste%20${encodeURIComponent(b.naam)}%2C%20Jai%20Maa%20Travels%20se%20aapki%20booking%20confirm%20ho%20gayi!" class="wa-link" target="_blank"><i class="fab fa-whatsapp"></i> Call</a>
-        &nbsp;
-        <button class="del-btn" onclick="deleteBooking('${b.id}')">🗑️</button>
-      </td>
+      <td><b>${i+1}</b></td>
+      <td><span class="bid">${b.id||b.BookingID||'—'}</span></td>
+      <td><b>${b.naam||b.Naam||'—'}</b></td>
+      <td>${b.mobile||b.Mobile||'—'}</td>
+      <td><span class="ev-badge">${b.event||b.Occasion||'—'}</span></td>
+      <td>${b.vehicle||b.Vehicle||'—'}</td>
+      <td>${b.date||b.Date||'—'}</td>
+      <td>${b.city||b.City||'—'}</td>
+      <td>${b.pax||b.Passengers||'—'}</td>
+      <td>${b.budget||b.Budget||'—'}</td>
+      <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${b.details||b.Details||''}">${b.details||b.Details||'—'}</td>
+      <td style="white-space:nowrap;font-size:.74rem;color:#888">${b.time||b.SubmittedAt||'—'}</td>
+      <td><button class="del-btn" onclick="askDelete('${b.id||b.BookingID}')">🗑️ Delete</button></td>
     </tr>`).join('')}
     </tbody>
   </table>`;
 }
 
+/* ---------- FILTER ---------- */
 function filterBookings(){
   const s = document.getElementById('searchInput').value.toLowerCase();
   const ev = document.getElementById('filterEvent').value;
-  const filtered = allBookings.filter(b=>{
-    const matchSearch = !s || b.naam.toLowerCase().includes(s) || b.mobile.includes(s);
-    const matchEvent = !ev || b.event===ev;
-    return matchSearch && matchEvent;
-  });
-  renderTable(filtered);
+  renderTable(allBookings.filter(b=>{
+    const naam = (b.naam||b.Naam||'').toLowerCase();
+    const mob = (b.mobile||b.Mobile||'');
+    const occ = (b.event||b.Occasion||'');
+    return (!s || naam.includes(s) || mob.includes(s)) && (!ev || occ===ev);
+  }));
 }
 
-function deleteBooking(id){
-  if(!confirm('Yeh booking delete karein?')) return;
+/* ---------- PASSWORD MODAL ---------- */
+function openModal(title, desc, action, id=null){
+  pendingAction = action;
+  pendingId = id;
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalDesc').textContent = desc;
+  document.getElementById('modalPass').value = '';
+  document.getElementById('modalErr').textContent = '';
+  document.getElementById('pwModal').classList.add('show');
+  setTimeout(()=>document.getElementById('modalPass').focus(), 200);
+}
+
+function closeModal(){
+  document.getElementById('pwModal').classList.remove('show');
+  pendingAction = null; pendingId = null;
+}
+
+function confirmAction(){
+  const val = document.getElementById('modalPass').value;
+  if(val !== ADMIN_PASSWORD){
+    document.getElementById('modalErr').textContent = '❌ Galat password!';
+    document.getElementById('modalPass').value = '';
+    document.getElementById('modalPass').focus();
+    return;
+  }
+  closeModal();
+  if(pendingAction === 'delete') executeDelete(pendingId);
+  else if(pendingAction === 'clearAll') executeClearAll();
+}
+
+/* ---------- DELETE ---------- */
+function askDelete(id){
+  openModal('Booking Delete Karein?', 'Ek booking delete karne ke liye password daalo', 'delete', id);
+}
+function executeDelete(id){
   let data = JSON.parse(localStorage.getItem('jmt_bookings') || '[]');
-  data = data.filter(b=>b.id!==id);
+  data = data.filter(b=> (b.id||b.BookingID) !== id);
   localStorage.setItem('jmt_bookings', JSON.stringify(data));
   loadBookings();
+  showToast('✅ Booking delete ho gayi!');
 }
 
-function clearAll(){
-  if(!confirm('Sari bookings delete karein? Yeh undo nahi hoga!')) return;
+/* ---------- CLEAR ALL ---------- */
+function askClearAll(){
+  openModal('Saari Bookings Delete Karein?', '⚠️ Yeh action undo nahi hoga! Password daalo.', 'clearAll');
+}
+function executeClearAll(){
   localStorage.removeItem('jmt_bookings');
   loadBookings();
+  showToast('✅ Saari bookings delete ho gayi!');
 }
 
+/* ---------- TOAST ---------- */
+function showToast(msg){
+  const t = document.createElement('div');
+  t.style.cssText='position:fixed;bottom:25px;right:25px;background:#1a1a2e;color:#fff;padding:13px 20px;border-radius:12px;font-size:.85rem;font-weight:600;z-index:9999;box-shadow:0 5px 20px rgba(0,0,0,.3);border-left:4px solid #25d366;';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(), 3000);
+}
+
+// Page load pe seedha bookings dikhaao
 loadBookings();
 </script>
 </body>
